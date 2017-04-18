@@ -31,4 +31,26 @@ public class Solution {
         
         return true;
     }
+    public boolean isIsomorphic2(String s, String t){
+        if(s== null || t==null || s.length()!= t.length()){
+            return false;
+        }
+        char[] str1 = s.toCharArray();
+        char[] str2 = t.toCharArray();
+        HashMap<Character,Character> map = new HashMap<>();
+        for(int i=0;i<str1.length;i++){
+            if(map.containsKey(str1[i])){
+                if(map.get(str1[i]) != str2[i]){
+                    return false;
+                }
+            }else{
+                if(map.containsValue(str2[i])){
+                    return false;
+                }
+                map.put(str1[i],str2[i]);
+            }
+
+        }
+        return true;
+    }
 }
