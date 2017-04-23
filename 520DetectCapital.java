@@ -5,16 +5,29 @@ public class Solution {
         for(int i=0;i<length;i++){
             help[i]=word.charAt(i)-'a';
         }
-        if(AllCapital(help)){
-            return true;
+//         if(AllCapital(help)){
+//             return true;
+//         }
+//         if(firstCapital(help)){
+//             return true;
+//         }
+//         if(NonCapital(help)){
+//             return true;
+//         }
+//         return false;
+        if(help[0]<0){
+            if(AllCapital(help)){
+                return true;
+            }
+            if(firstCapital(help)){
+                return true;
+            }
+        }else{
+            if(NonCapital(help)){
+                return true;
+            }
         }
-        if(firstCapital(help)){
-            return true;
-        }
-        if(NonCapital(help)){
-            return true;
-        }
-        return false;
+        return false;                   
     }
     
     private boolean AllCapital(int[]help){
