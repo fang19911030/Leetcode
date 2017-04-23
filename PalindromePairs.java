@@ -27,7 +27,7 @@ public class PalidromePairs {
 				}
 				if(isPalindrome(str2)){
 					String str1rvs = new StringBuilder(str2).reverse().toString();
-					if(map.containsKey(str1rvs) && map.get(str1rvs)!=i){
+					if(map.containsKey(str1rvs) && map.get(str1rvs)!=i && str2.length()!=0){
 						List<Integer> list = new ArrayList<Integer>();
 						list.add(i);
 						list.add(map.get(str1rvs));
