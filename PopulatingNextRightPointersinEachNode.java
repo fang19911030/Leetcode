@@ -19,7 +19,7 @@ public class Solution {
                 TreeLinkNode cur = queue.poll();
                 if(i==levelSize-1){
                     cur.next = null;
-                    if(cur.left!= null){}
+                    if(cur.left!= null){
                         queue.offer(cur.left);
                     }
                     if(cur.right != null){
