@@ -53,4 +53,29 @@ public class Solution {
     
     return secondSell; // secondSell will be the max profit after passing the prices
     }
+
+    public int maxProfit3(int[] prices){
+        int[] forward = new int[prices.length];
+        int[] backward = new int[prices.length];
+
+        forward[0] = 0;
+        int min_buy = prices[0];
+        for(int i=1;i<prices.length;i++){
+            forward[i] = Math.max(forward[i-1],prices[i]-min_buy);
+            min_buy = Math.min(prices[i],min_buy);
+        }
+        int length = prices.length;
+        backward[length-1] =0;
+        max_sell = prices[length-1];
+        for(int i=length-2;i>=0;i--){
+            backward[i] = Math.max(backward[i+1],max_sell-prices[i]);
+            max_sell = Math.max(prices[i],max_sell);
+        }
+
+        int res = 0;
+        for(int i=0;i<length;i++){
+            res = Math.max(res,backward[i]+forward[i]);
+        }
+        return res;
+    }
 }
