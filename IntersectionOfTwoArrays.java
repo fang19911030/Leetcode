@@ -1,7 +1,7 @@
 public class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
         
-        int[] longs = nums1.length>=nums2.length? nums1:nums2;
+        int[] longs = nums1.length>=nums2.length? nums1:nums2;     //here is important
         int[] shorts = nums1.length<nums2.length? nums1:nums2;
         if(nums1 == null || nums2 == null || nums1.length==0|| nums2.length == 0){
             return new int[0];
