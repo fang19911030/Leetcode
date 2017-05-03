@@ -25,4 +25,22 @@ public class Solution {
     private boolean isMultiple(int sum, int k){
         return sum%k==0;
     }
+
+    public boolean checkSubarraySum2(int[] nums, int k){
+        Map<Integer, Integer> map = new HashMap<Integer,Integer>();
+        map.put(0,-1);
+        int runningSum = 0;
+        for(int i=0;i<nums.length;i++){
+            runningSum += nums[i];
+            if(k!= 0){
+                runningSum %=k;
+            }
+            Integer pre = map.get(runningSum);
+            if( pre != null && i-pre>1){
+                return true;
+            }
+            map.put(runningSum,i);
+        }
+        return false;
+    }
 }
