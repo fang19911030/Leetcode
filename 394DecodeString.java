@@ -8,8 +8,8 @@ public class Solution {
             if (Character.isDigit(s.charAt(idx))) {
                 int count = 0;
                 while (Character.isDigit(s.charAt(idx))) {
-                    count = 10 * count + (s.charAt(idx) - '0');
-                    idx++;
+                    count = 10 * count + (s.charAt(idx) - '0');    //Integer.parseInt(String s) Integer.valueOf(String s) so
+                    idx++;                                         // don't use them for Character.
                 }
                 countStack.push(count);
             }
