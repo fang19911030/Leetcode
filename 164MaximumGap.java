@@ -31,7 +31,7 @@ public class Solution {
             if(bucketMIN[i] == Integer.MAX_VALUE && bucketMAX[i] == Integer.MIN_VALUE)
                 continue;
                 
-            maxGap = Math.max(maxGap,bucketMIN[i]-previous);
+            maxGap = Math.max(maxGap,bucketMIN[i]-previous);       //先更新
             previous = bucketMAX[i];
         }
         
