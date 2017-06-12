@@ -17,7 +17,7 @@ public class Solution {
         Arrays.fill(bucketMIN,Integer.MAX_VALUE);
         Arrays.fill(bucketMAX,Integer.MIN_VALUE);
         for(int i:nums){
-            if(i == min || i == max){
+            if(i == min || i == max){                        //key part
                 continue;
             }
             int idx = (i-min)/gap;
@@ -28,7 +28,7 @@ public class Solution {
         int maxGap = Integer.MIN_VALUE;
         int previous = min;
         for(int i =0 ; i<nums.length -1;i++){
-            if(bucketMIN[i] == Integer.MAX_VALUE && bucketMAX[i] == Integer.MIN_VALUE)
+            if(bucketMIN[i] == Integer.MAX_VALUE && bucketMAX[i] == Integer.MIN_VALUE)   //make sure the slot is empty
                 continue;
                 
             maxGap = Math.max(maxGap,bucketMIN[i]-previous);       //先更新
