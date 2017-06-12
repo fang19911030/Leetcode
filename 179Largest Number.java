@@ -29,7 +29,7 @@ public class Solution{
 				String s2 = str2+str1;
 				return s2.compareTo(s1);
 			}
-		};
+		};       ／／dont forget ;    
 
 		Arrays.sort(s_num, comp);
 		if(s_num[0].charAt(0)=='0'){
