@@ -23,7 +23,7 @@ public class Solution{
 		number[i-1] = number[smallest];
 		number[smallest] = temp;
 		Arrays.sort(number,i,number.length);
-		long val = Long.parseLong(new String(number));
+		long val = Long.parseLong(new String(number));  //little trick
 		return (val<=Integer.MAX_VALUE) (int)val:-1;
 	}
 }
