@@ -1,3 +1,5 @@
+/* for string equation or similar problem preprocess the string to get rid of " ", boring test case*/
+
 import java.util.*;
 public class BasicCalculator {
     public int calculate(String s) {
@@ -50,6 +52,7 @@ public class BasicCalculator {
                 a.push(s.charAt(i));
                 i++;
             }
+            i++;
         }
     }
 
