@@ -28,7 +28,7 @@ public class Solution {
 
         return res;
     }
-    public int[] findRightInterval(Interval[] intervals) {
+    public int[] findRightInterval2(Interval[] intervals) {
         int[] result = new int[intervals.length];
         java.util.NavigableMap<Integer, Integer> intervalMap = new TreeMap<>();
         
@@ -42,6 +42,44 @@ public class Solution {
         }
         
         return result;
+    }
+
+    public int[] findRightInterval3(Interval[] intervals) {
+        int [] answer = new int [intervals.length];
+        List<int[]> sortedIntervals = new ArrayList<>();
+        
+        for (int idx = 0; idx < intervals.length; idx ++)
+            sortedIntervals.add(new int[] { intervals [idx].start, idx });
+        
+        Collections.sort (sortedIntervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1 [0] - o2 [0];
+            }
+        });
+        
+        for (int idx = 0; idx < intervals.length; idx ++) {
+            int search = intervals [idx].end;
+            int low = 0, high = sortedIntervals.size() - 1;
+            boolean found = false;
+            
+            int mid = -1;
+            while (low <= high) {
+                mid = (low + high) >>> 1;
+                if (sortedIntervals.get(mid)[0] > search)
+                    high = mid - 1;
+                else if (sortedIntervals.get(mid)[0] < search)
+                    low = mid + 1;
+                else {
+                    answer[idx] = sortedIntervals.get(mid)[1];
+                    found = true; break;
+                }
+            }
+
+            answer[idx] = (!found) ? (low < sortedIntervals.size() && high < sortedIntervals.size() ? sortedIntervals.get(low)[1] : -1) : answer[idx];
+        }
+        
+        return answer;
     }
 
 } 
