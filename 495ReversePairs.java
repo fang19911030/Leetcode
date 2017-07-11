@@ -48,8 +48,8 @@ public class Solution{
 	}
 
 	public int reversePairs(int[] nums) {
-    return reversePairsSub(nums, 0, nums.length - 1);
-}
+	    return reversePairsSub(nums, 0, nums.length - 1);
+	}
     
 	private int reversePairsSub(int[] nums, int l, int r) {
 	    if (l >= r) return 0;

@@ -9,7 +9,6 @@
  */
 public class Codec {
 
-    // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         serialize(root,sb);
@@ -18,43 +17,38 @@ public class Codec {
     
     private void serialize(TreeNode root, StringBuilder sb){
         if(root == null){
-            sb.append("#,");
+            sb.append("#");
             return;
         }
         sb.append(root.val+",");
-        serialize(root.left, sb);
-        serialize(root.right, sb);
+        if(root.left!=null)serialize(root.left, sb);
+        if(root.right != null)serialize(root.right, sb);
         
     }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
+        if(data.equals("#")) return null;
         String[] states = data.split(",");
         return deserialize(states,0,states.length-1);
     }
     
     private TreeNode deserialize(String[] states,int start, int end){
         if(start == end){
-            if(states[start].equals("#")){
-                return null;
-            }else{
                 return new TreeNode(Integer.valueOf(states[start]));
-            }
         }
         TreeNode curRoot = new TreeNode(Integer.valueOf(states[start]));
-        int leftEnd = start+1;
-        for(int i=start+1;i<=end;i++){
-            if(!states[i].equals("#") &&states[start].compareTo(states[i])<0){
-                leftEnd = i-1;
-                break;
+        int leftEnd = start;
+        for(int i=start;i<=end;i++){
+            if(states[start].compareTo(states[i])>0){
+                leftEnd = i;
             }
         }
-        curRoot.left = deserialize(states,start+1,leftEnd);
-        curRoot.right = deserialize(states,leftEnd+1,end);
+        if(leftEnd >start)curRoot.left = deserialize(states,start+1,leftEnd);
+        if(leftEnd+1<=end) curRoot.right = deserialize(states,leftEnd+1,end);
         return curRoot;
         
     }
-
 
     private static final String SEP=",";
     private static final String NULL = "null";
@@ -70,13 +64,13 @@ public class Codec {
             if(root.right!= null)st.push(root.right);
             if(root.left != null)st.push(root.left);
         }
-        return sb.toString;
+        return sb.toString();
     }
 
     public TreeNode deserialize(String data){
         if(data.equals(NULL)) return null;
         String[]strs = data.split(SEP);
-        Queue<Integer> = new LinkedList<>();
+        Queue<Integer> q= new LinkedList<>();
         for(String e:strs){
             q.offer(Integer.valueOf(e));
         }
