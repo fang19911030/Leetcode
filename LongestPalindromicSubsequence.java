@@ -75,9 +75,34 @@ public class LongestPalindromicSubsequence {
         return memo[i][j];
     }
 
+    public int longestPalindromeSubseq(String s) {
+        int[][] dp = new int[s.length()][s.length()];
 
-
-
-
+        return dfs(s,0,s.length()-1,dp);
+    }
+    
+    private int dfs(String s, int left, int right, int[][] dp){
+        if(left == right){
+            return 1;
+        }
+        if(left+1==right){
+            if(s.charAt(left) == s.charAt(right)){
+                return 2;
+            }else{
+                return 1;
+            }
+        }
+        if(dp[left][right]!= 0){
+            return dp[left][right];
+        }
+        int res = 0;
+        if(s.charAt(left) == s.charAt(right)){
+            res =2+ dfs(s,left+1,right-1,dp);
+        }else{
+            res = Math.max(dfs(s,left+1,right,dp),dfs(s,left,right-1,dp));
+        }
+        dp[left][right] = res;
+        return res;
+    }
 
 }   
