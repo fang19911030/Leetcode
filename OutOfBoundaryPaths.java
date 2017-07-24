@@ -65,7 +65,7 @@ public class Solution {
                 }
             }
         }
-        return (int)help(m,n,N,i,j,dp)%1000000007;
+        return (int)help(m,n,N,i,j,dp)%1000000007;     //have wrong answer
     }
     
     private long help(int m, int n, int N, int i, int j,long[][][]dp){

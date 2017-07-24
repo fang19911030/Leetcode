@@ -1,0 +1,10 @@
+# Insertion Sort List 
+
+Sort a linked list using insertion sort.
+
+## Time Cost:
+linear Time
+
+## Tips:
+
+Declare a new List and insert in to the new List
