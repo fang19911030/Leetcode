@@ -1,0 +1,11 @@
+# LintCode 372 Delete Node in the Middle of Singly Linked List
+Implement an algorithm to delete a node in the middle of a singly linked list, given only access to that node.
+
+Linked list is 1->2->3->4, and given node 3, delete the node in place 1->2->4
+
+## Time Cost
+O(n)
+
+
+## Tips:
+Delete a node of the LinkedList need the help pointer pre!! 
