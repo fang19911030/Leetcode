@@ -1,0 +1,12 @@
+# LintCode 167 Add Two Numbers
+You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in reverse order, such that the 1's digit is at the 
+
+head of the list. Write a function that adds the two numbers and returns the sum as a linked list.
+
+## The Time Cost
+
+O(max(l1.length,l2.length))
+
+## Tips:
+
+Don't forget to move the pointers and at last if carry bit is one, we need add a new list node.
