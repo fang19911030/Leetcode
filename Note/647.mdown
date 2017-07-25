@@ -1,0 +1,13 @@
+# 647. Palindromic Substrings
+
+Given a string, your task is to count how many palindromic substrings in this string.
+
+The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.
+
+## Time Cost
+
+O(n*2)
+
+
+Tips:
+The key point for dp is how to divide subproblem. For this question the subproblem for length l( l<= string length)  whether the left index to  the left index + l -1 is a palindromic string.
